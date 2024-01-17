@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодняя форма для открытки</title>
+    <style>
+        body {
+            background-color: #e74c3c; /* Красный цвет фона */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2ecc71; /* Зеленый цвет для кнопки */
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Зеленый цвет при наведении на кнопку */
+        }
+    </style>
+</head>
+<body>
+    <h1>Новогодняя форма для открытки</h1>
+    <form method="post" action="{{ url_for('lab9.new_year_card') }}">
+        <label for="recipient_name">Имя получателя:</label>
+        <input type="text" name="recipient_name" required><br>
+
+        <label for="recipient_gender">Пол получателя:</label>
+        <select name="recipient_gender" required>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+        </select><br>
+
+        <label for="sender_name">Имя отправителя:</label>
+        <input type="text" name="sender_name" required><br>
+
+        <button type="submit">Создать открытку</button>
+    </form>
+</body>
+</html>

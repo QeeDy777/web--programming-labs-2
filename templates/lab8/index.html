@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+<!-- Расширяем базовый шаблон "base.html" -->
+
+{% block lab %}Лабораторная работа 8{% endblock %}
+<!-- Задаем заголовок страницы в блоке "lab" -->
+
+{% block script %}
+    <script src="{{ url_for('static', filename='lab8/main.js') }}"></script>
+    <!-- Подключаем внешний файл JavaScript через тег script -->
+    <style>
+        .modal {
+            z-index: 100;
+            box-shadow: 3px 3px 5px black;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            position: absolute;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+    <!-- Определяем стили для модального окна -->
+{% endblock %}
+
+{% block main %}
+    <h1>Список курсов</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Количество видеороликов</th>
+                <th>Цена</th>
+                <th>Действие</th>
+                <th>Дата создания</th>
+            </tr>
+        </thead>
+        <tbody id="course-list"></tbody>
+    </table>
+
+    <script>
+        fillCourseList();
+        // Вызываем функцию для заполнения списка курсов
+
+        function showAddCourseModal() {
+            addCourse();
+            // Вызываем функцию для добавления нового курса и показываем модальное окно
+            showModal();
+            // Вызываем функцию для отображения модального окна
+        }
+    </script>
+
+    <div>
+        <button onclick="showAddCourseModal()">Добавить курс</button>
+        <!-- Создаем кнопку "Добавить курс" с обработчиком события для отображения модального окна -->
+    </div>
+
+    <div class="modal">
+        <input type="hidden" id="num">
+        <!-- Создаем скрытое поле для хранения номера курса -->
+        <label>
+            Название курса:
+            <input type="text" id="name">
+            <!-- Поле для ввода названия курса -->
+        </label><br>
+
+        <label>
+            Количество видеороликов:
+            <input type="number" id="videos" min="0">
+            <!-- Поле для ввода количества видеороликов -->
+        </label><br>
+
+        <label>
+            Цена:
+            <input type="number" id="price" min="0">
+            <!-- Поле для ввода цены курса -->
+        </label><br>
+
+        <button onclick="sendCourse()">OK</button>
+        <!-- Кнопка "OK" с обработчиком события для отправки данных курса -->
+        <button onclick="cancel()">Отмена</button>
+        <!-- Кнопка "Отмена" с обработчиком события для закрытия модального окна -->
+    </div>
+{% endblock %}
+<!-- Закрываем блок "main" -->

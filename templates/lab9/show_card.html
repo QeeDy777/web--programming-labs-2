@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодняя открытка</title>
+    <style>
+        body {
+            background-color: #3498db; /* Голубой цвет фона */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* Добавим стиль для поздравительной открытки */
+        .card-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Новогодняя открытка</h1>
+    <div class="card-container">
+        <p>{{ card_text }}</p>
+    </div>
+</body>
+</html>
